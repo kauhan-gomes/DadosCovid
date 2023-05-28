@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Aug  2 11:24:46 2022
-
-@author: maria
-"""
 
 import pandas as pd
 import plotly.express as px
