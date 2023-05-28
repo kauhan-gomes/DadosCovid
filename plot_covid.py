@@ -17,7 +17,7 @@ estados = list(df['state'].unique())
 state = st.selectbox('Qual o estado desejado?', estados)
 
 #SELEÇÃO DO GRÁFICO
-graficos = ['Gráfico de Linha', 'Gráfico de Pizza', 'Gráfico de Dispersão']
+graficos = ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Dispersão']
 grafico = st.selectbox('Qual tipo de gráfico?', graficos)
 
 #SELEÇÃO DA COLUNA
@@ -29,8 +29,8 @@ df = df[df['state'] == state]
 
 if grafico == 'Gráfico de Linha':
     fig = px.line(df, x="date", y=column, title=column + ' - ' + state)
-elif grafico == 'Gráfico de Pizza':
-    fig = px.pie(df, values=column, names='date', title=column + ' - ' + state)
+elif grafico == 'Gráfico de Área':
+    fig = px.area(df, x="date", y=column, title=column + ' - ' + state)
 else:
     fig = px.scatter(df, x="date", y=column, title=column + ' - ' + state)
 
@@ -42,3 +42,4 @@ st.write('Nessa aplicação, o usuário tem a opção de escolher o estado, o ti
 st.plotly_chart(fig, use_container_width=True)
 
 st.caption('Os dados foram obtidos a partir do site: https://github.com/wcota/covid19br')
+
