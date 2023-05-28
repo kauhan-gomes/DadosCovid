@@ -7,7 +7,7 @@ import streamlit as st
 #streamlit run codigoBase.py
 
 #LENDO O DATASET
-df = pd.read_csv('https://raw.githubusercontent.com/wcota/covid19br/master/cases-brazil-total.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/wcota/covid19br/master/cases-brazil-states.csv')
 
 #MELHORANDO O NOME DAS COLUNAS DA TABELA
 df = df.rename(columns={'newDeaths': 'Novos óbitos','newCases': 'Novos casos','deaths_per_100k_inhabitants': 'Óbitos por 100 mil habitantes','totalCases_per_100k_inhabitants':'Casos por 100 mil habitantes'})
