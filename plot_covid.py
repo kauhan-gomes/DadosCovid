@@ -17,12 +17,12 @@ estados = list(df['state'].unique())
 state = st.selectbox('Qual o estado desejado?', estados)
 
 #SELEÇÃO DO GRÁFICO
-graficos = ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Dispersão']
+graficos = ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Barras']
 grafico_colunas = {
-    'Novos óbitos': ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Dispersão'],
-    'Novos casos': ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Dispersão'],
-    'Óbitos por 100 mil habitantes': ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Dispersão'],
-    'Casos por 100 mil habitantes': ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Dispersão']
+    'Novos óbitos': ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Barras'],
+    'Novos casos': ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Barras'],
+    'Óbitos por 100 mil habitantes': ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Barras'],
+    'Casos por 100 mil habitantes': ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Barras']
 }
 grafico = st.selectbox('Qual tipo de gráfico?', graficos)
 
@@ -38,7 +38,7 @@ if grafico == 'Gráfico de Linha':
 elif grafico == 'Gráfico de Área':
     fig = px.area(df, x="date", y=column, title=column + ' - ' + state)
 else:
-    fig = px.scatter(df, x="date", y=column, title=column + ' - ' + state)
+    fig = px.bar(df, x="date", y=column, title=column + ' - ' + state)
 
 fig.update_layout(xaxis_title='Data', yaxis_title=column.upper(), title={'x': 0.5})
 
@@ -48,3 +48,5 @@ st.write('Nessa aplicação, o usuário tem a opção de escolher o estado, o ti
 st.plotly_chart(fig, use_container_width=True)
 
 st.caption('Os dados foram obtidos a partir do site: https://github.com/wcota/covid19br')
+
+
