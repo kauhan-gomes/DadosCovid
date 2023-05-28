@@ -14,7 +14,7 @@ df = df.rename(columns={'newDeaths': 'Novos óbitos','newCases': 'Novos casos','
 
 #SELECÃO DO ESTADO
 estados = list(df['state'].unique())
-state = st.selectbox('Qual estado?', estados)
+state = st.selectbox('Qual o estado desejado?', estados)
 
 #SELEÇÃO DA COLUNA
 #column ='Casos por 100 mil habitantes'
