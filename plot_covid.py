@@ -18,6 +18,12 @@ state = st.selectbox('Qual o estado desejado?', estados)
 
 #SELEÇÃO DO GRÁFICO
 graficos = ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Dispersão']
+grafico_colunas = {
+    'Novos óbitos': ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Dispersão'],
+    'Novos casos': ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Dispersão'],
+    'Óbitos por 100 mil habitantes': ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Dispersão'],
+    'Casos por 100 mil habitantes': ['Gráfico de Linha', 'Gráfico de Área', 'Gráfico de Dispersão']
+}
 grafico = st.selectbox('Qual tipo de gráfico?', graficos)
 
 #SELEÇÃO DA COLUNA
@@ -42,4 +48,3 @@ st.write('Nessa aplicação, o usuário tem a opção de escolher o estado, o ti
 st.plotly_chart(fig, use_container_width=True)
 
 st.caption('Os dados foram obtidos a partir do site: https://github.com/wcota/covid19br')
-
