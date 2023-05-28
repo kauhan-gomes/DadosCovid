@@ -17,7 +17,7 @@ estados = list(df['state'].unique())
 state = st.selectbox('Qual o estado desejado?', estados)
 
 #SELEÇÃO DO GRÁFICO
-graficos = ['Gráfico de Linha', 'Gráfico de Barras', 'Gráfico de Dispersão']
+graficos = ['Gráfico de Linha', 'Gráfico de Pizza', 'Gráfico de Dispersão']
 grafico = st.selectbox('Qual tipo de gráfico?', graficos)
 
 #SELEÇÃO DA COLUNA
@@ -29,8 +29,8 @@ df = df[df['state'] == state]
 
 if grafico == 'Gráfico de Linha':
     fig = px.line(df, x="date", y=column, title=column + ' - ' + state)
-elif grafico == 'Gráfico de Barras':
-    fig = px.bar(df, x="date", y=column, title=column + ' - ' + state)
+elif grafico == 'Gráfico de Pizza':
+    fig = px.pie(df, values=column, names='date', title=column + ' - ' + state)
 else:
     fig = px.scatter(df, x="date", y=column, title=column + ' - ' + state)
 
