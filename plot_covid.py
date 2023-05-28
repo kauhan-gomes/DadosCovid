@@ -34,7 +34,7 @@ else:
     fig = px.bar(df_estado, x='date', y=column, title=column + ' - ' + state)
 
 # Personalizando o layout do gráfico
-fig.update_layout(xaxis_title='Data', yaxis_title=column.upper(), title={'x': 0.5})
+fig.update_layout(xaxis_title='Data', yaxis_title=column.upper(), title={'x': 0.5}, width=800, height=500) # Aumentando a largura e altura do gráfico
 
 # Exibindo o título e o gráfico no Streamlit
 st.title('Dados COVID-19 - Brasil')
@@ -47,5 +47,6 @@ st.plotly_chart(fig, use_container_width=True)
 
 # Rodapé
 st.caption('Dados obtidos do repositório: https://github.com/wcota/covid19br')
+
 
 
